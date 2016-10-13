@@ -33,8 +33,8 @@ LIST                                                      *algorithm_mnemonics*
     *iss*                               |is_sorted|
     *isu*                               |is_sorted_until|
     *ita*                               |iota|
-    *ltr*                               |transform|
-    *lwr*                               |transform|
+    *ltr*                               |trim_left|
+    *lwr*                               |tolower|
     *lxc*                               |lexigraphical_compare|
     *mkh*                               |make_heap|
     *mme*                               |minmax_element|
@@ -78,9 +78,9 @@ LIST                                                      *algorithm_mnemonics*
     *stv*                               |vector|
     *swr*                               |swap_ranges|
     *tfm*                               |transform|
-    *trm*                               |trim right|
+    *trm*                               |trim_right|
     *ucp*                               |unique_copy|
-    *upr*                               |transform|
+    *upr*                               |toupper|
     *uqe*                               |unique|
 
 ===============================================================================
@@ -253,14 +253,14 @@ LIST                                                      *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-`ltr`                                                     *transform*
+`ltr`                                                     *trim_left*
 >
     %\m C%.erase(0, %\m C%.find_first_not_of(" \t\n\r"));
 
 <
 -------------------------------------------------------------------------------
 
-`upr`                                                     *transform*
+`upr`                                                     *toupper*
 >
     std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
     return std::toupper(c);
@@ -706,7 +706,7 @@ LIST                                                      *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-`lwr`                                                     *transform*
+`lwr`                                                     *tolower*
 >
     std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
     return std::tolower(c); } );
@@ -741,7 +741,7 @@ LIST                                                      *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-`trm`                                                     *generate_n*
+`trm`                                                     *trim_right*
 >
     %\m C%.erase(%\m C%.find_last_not_of(" \t\n\r") + 1);
 

@@ -147,7 +147,7 @@ snippet lxc "lexigraphical_compare"
 	                               std::begin(${2:container2}), std::end($2)) {
 		${3}
 	}${0}
-snippet lwr "lower"
+snippet lwr "tolower"
 	std::transform(std::begin(${1:input}), std::end($1),
 	               std::begin(${2:output}),
 	               [](${3:char const c}) {
@@ -313,7 +313,7 @@ snippet uqe "unique"
 snippet ucp "unique_copy"
 	std::unique_copy(std::begin(${1:container}), std::end($1),
 	                 ${2:std::ostream_iterator<string>(std::cout, "\n")});${0}
-snippet upr "upper"
+snippet upr "toupper"
 	std::transform(std::begin(${1:input}), std::end($1),
 	               std::begin(${2:output}),
 	               [](${3:char const c}) {
