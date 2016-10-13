@@ -1,0 +1,770 @@
+*algorithm_mnemonics.txt* Vim snippets to bust your productivity.
+
+===============================================================================
+LIST                                                      *algorithm_mnemonics*
+
+    *acl*                               |accumulate|
+    *acm*                               |accumulate|
+    *ajf*                               |adjacent_find|
+    *alo*                               |all_of|
+    *ano*                               |any_of|
+    *cni*                               |count_if|
+    *cnt*                               |count|
+    *cpb*                               |copy_backward|
+    *cpi*                               |copy_if|
+    *cpn*                               |copy_n|
+    *cpy*                               |copy|
+    *eql*                               |equal|
+    *erm*                               |remove|
+    *ffo*                               |find_first_of|
+    *fil*                               |fill|
+    *fin*                               |find_if_not|
+    *fln*                               |fill_n|
+    *fnd*                               |find|
+    *fne*                               |find_end|
+    *fni*                               |find_if|
+    *fre*                               |for_each|
+    *gnn*                               |generate_n|
+    *gnr*                               |generate|
+    *ihp*                               |is_heap|
+    *ihu*                               |is_heap_until|
+    *ipr*                               |is_permutation|
+    *ipt*                               |is_partitioned|
+    *iss*                               |is_sorted|
+    *isu*                               |is_sorted_until|
+    *ita*                               |iota|
+    *ltr*                               |transform|
+    *lwr*                               |transform|
+    *lxc*                               |lexigraphical_compare|
+    *mkh*                               |make_heap|
+    *mme*                               |minmax_element|
+    *mne*                               |min_element|
+    *mpb*                               |move_backward|
+    *mrg*                               |merge|
+    *msm*                               |mismatch|
+    *mxe*                               |max_element|
+    *nno*                               |none_of|
+    *nth*                               |nth_element|
+    *nxp*                               |next_permutation|
+    *oit*                               |copy|
+    *phh*                               |push_heap|
+    *ppt*                               |partition_point|
+    *prp*                               |prev_permutation|
+    *psc*                               |partial_sort_copy|
+    *pst*                               |partial_sort|
+    *ptc*                               |partition_copy|
+    *ptn*                               |partition|
+    *rci*                               |replace_copy_if|
+    *rmc*                               |remove_copy|
+    *rmf*                               |remove_copy_if|
+    *rmi*                               |remove_if|
+    *rmv*                               |remove|
+    *rpc*                               |replace_copy|
+    *rpi*                               |replace_if|
+    *rpl*                               |replace|
+    *rtc*                               |rotate_copy|
+    *rte*                               |rotate|
+    *rvc*                               |reverse_copy|
+    *rvr*                               |reverse|
+    *shf*                               |random_shuffle|
+    *spt*                               |stable_partition|
+    *srh*                               |search|
+    *srn*                               |search_n|
+    *srt*                               |sort|
+    *sth*                               |sort_heap|
+    *sti*                               |cin|
+    *sto*                               |cout|
+    *sts*                               |stable_sort|
+    *stv*                               |vector|
+    *swr*                               |swap_ranges|
+    *tfm*                               |transform|
+    *trm*                               |trim right|
+    *ucp*                               |unique_copy|
+    *upr*                               |transform|
+    *uqe*                               |unique|
+
+===============================================================================
+`ihp`                                                     *is_heap*
+>
+    if (std::is_heap(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`mme`                                                     *minmax_element*
+>
+    auto minmax = std::minmax_element(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`ihu`                                                     *is_heap_until*
+>
+    auto pos = std::is_heap_until(std::begin(%\m C%), std::end(%\m C%));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`acl`                                                     *accumulate*
+>
+    auto sum = std::accumulate( std::begin(%\m C%), std::end(%\m C%), 0, [](int total, %\c) {
+      %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`eql`                                                     *equal*
+>
+    if (std::equal(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`acm`                                                     *accumulate*
+>
+    auto sum = std::accumulate(std::begin(%\m C%), std::end(%\m C%), 0);
+
+<
+-------------------------------------------------------------------------------
+
+`ucp`                                                     *unique_copy*
+>
+    std::unique_copy(std::begin(%\m C%), std::end(%\m C%),
+      std::ostream_iterator&lt;string&gt;(std::cout, "\n"));
+
+<
+-------------------------------------------------------------------------------
+
+`ita`                                                     *iota*
+>
+    std::iota(std::begin(%\m C%), std::end(%\m C%), %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`iss`                                                     *is_sorted*
+>
+    if (std::is_sorted(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`rpc`                                                     *replace_copy*
+>
+    std::replace_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), %\c, %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`isu`                                                     *is_sorted_until*
+>
+    auto pos = std::is_sorted_until(std::begin(%\m C%), std::end(%\m C%));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`rmv`                                                     *remove*
+>
+    auto pos = std::remove(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`nth`                                                     *nth_element*
+>
+    std::nth_element(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`rpi`                                                     *replace_if*
+>
+    std::replace_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+    %\c
+    }, %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`rpl`                                                     *replace*
+>
+    std::replace(std::begin(%\m C%), std::end(%\m C%), %\c, %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`erm`                                                     *remove*
+>
+    %\m C%.erase( std::remove( std::begin(%\m C%), std::end(%\m C%), %\c ), std::end(%\m C%) );
+
+<
+-------------------------------------------------------------------------------
+
+`tfm`                                                     *transform*
+>
+    std::transform(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+    %\c%
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`fln`                                                     *fill_n*
+>
+    std::fill_n(std::begin(%\m C%), %\c, %\c );
+
+<
+-------------------------------------------------------------------------------
+
+`alo`                                                     *all_of*
+>
+    if (std::all_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } ) ) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`prp`                                                     *prev_permutation*
+>
+    if (std::prev_permutation(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`ltr`                                                     *transform*
+>
+    %\m C%.erase(0, %\m C%.find_first_not_of(" \t\n\r"));
+
+<
+-------------------------------------------------------------------------------
+
+`upr`                                                     *transform*
+>
+    std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
+    return std::toupper(c);
+    } );
+    %\c
+
+<
+-------------------------------------------------------------------------------
+
+`psc`                                                     *partial_sort_copy*
+>
+    std::partial_sort_copy(std::begin(%\m C%), std::end(%\m C%),
+                      std::begin(%\c), std::end(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`ppt`                                                     *partition_point*
+>
+    auto pos = std::partition_point(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } );
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`cnt`                                                     *count*
+>
+    auto n = std::count(std::begin(%\m C%), std::end(%\m C%), %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`uqe`                                                     *unique*
+>
+    auto pos = std::unique(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`sti`                                                     *cin*
+>
+    std::cin &gt;&gt;
+
+<
+-------------------------------------------------------------------------------
+
+`cpy`                                                     *copy*
+>
+    std::copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`sto`                                                     *cout*
+>
+    std::cout &lt;&lt;
+
+<
+-------------------------------------------------------------------------------
+
+`cpb`                                                     *copy_backward*
+>
+    std::copy_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`swr`                                                     *swap_ranges*
+>
+    std::swap_ranges(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`rtc`                                                     *rotate_copy*
+>
+    std::rotate_copy(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%),
+      std::begin(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`mxe`                                                     *max_element*
+>
+    auto pos = std::max_element(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`rte`                                                     *rotate*
+>
+    std::rotate(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`stv`                                                     *vector*
+>
+    std::vector&lt;%\c&gt; %\c
+
+<
+-------------------------------------------------------------------------------
+
+`cpi`                                                     *copy_if*
+>
+    std::copy_if(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c),
+    [](%\c) {
+      %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`cni`                                                     *count_if*
+>
+    auto n = std::count_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+
+<
+-------------------------------------------------------------------------------
+
+`cpn`                                                     *copy_n*
+>
+    std::copy_n(std::begin(%\m C%), %\c, std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`srt`                                                     *sort*
+>
+    std::sort(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`spt`                                                     *stable_partition*
+>
+    auto pos = std::stable_partition(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c});
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`msm`                                                     *mismatch*
+>
+    auto values = std::mismatch(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%));
+    if (values.first == std::end(%\m C%)) {
+      %\c
+    } else {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`mpb`                                                     *move_backward*
+>
+    std::move_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`ptc`                                                     *partition_copy*
+>
+    std::partition_copy(std::begin(%\m C%), std::end(%\m C%),
+                      std::begin(%\c), std::end(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`pst`                                                     *partial_sort*
+>
+    std::partial_sort(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`fnd`                                                     *find*
+>
+    auto pos = std::find(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`fre`                                                     *for_each*
+>
+    std::for_each( std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`mne`                                                     *min_element*
+>
+    auto pos = std::min_element(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`fne`                                                     *find_end*
+>
+    auto pos = std::find_std::end(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`mrg`                                                     *merge*
+>
+    std::merge(std::begin(%\m C%), std::end(%\m C%),
+    std::begin(%\c), std::end(%\c), std::begin(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`srh`                                                     *search*
+>
+    auto pos = std::search(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`fni`                                                     *find_if*
+>
+    auto pos = std::find_if(std::begin(%\m C%), std::end(%\m C%), []( %\c ) {
+      %\c
+    });
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`ptn`                                                     *partition*
+>
+    auto pos = std::partition(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`srn`                                                     *search_n*
+>
+    auto pos = std::search_n(std::begin(%\m C%), std::end(%\m C%),%\c,%\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`ano`                                                     *any_of*
+>
+    if (std::any_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } ) ) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`nxp`                                                     *next_permutation*
+>
+    if (std::next_permutation(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`rvr`                                                     *reverse*
+>
+    std::reverse(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`rmc`                                                     *remove_copy*
+>
+    std::remove_copy(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`sts`                                                     *stable_sort*
+>
+    std::stable_sort(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`rmf`                                                     *remove_copy_if*
+>
+    std::remove_copy_if( std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+        %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`rci`                                                     *replace_copy_if*
+>
+    std::replace_copy_if(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+      %\c
+      }, %\c );
+
+<
+-------------------------------------------------------------------------------
+
+`rmi`                                                     *remove_if*
+>
+    auto pos = std::remove_if( std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } );
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`rvc`                                                     *reverse_copy*
+>
+    std::reverse_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+
+<
+-------------------------------------------------------------------------------
+
+`oit`                                                     *copy*
+>
+    std::copy( std::begin( %\m C% ), std::end( %\m C% ), std::ostream_iterator&lt;%\c&gt;{
+    %\istd::cout, "%\c"
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`sth`                                                     *sort_heap*
+>
+    std::sort_heap(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`phh`                                                     *push_heap*
+>
+    std::push_heap(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`ffo`                                                     *find_first_of*
+>
+    auto pos = std::find_first_of(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`gnr`                                                     *generate*
+>
+    std::generate(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`ipr`                                                     *is_permutation*
+>
+    if (std::is_permutation(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`ipt`                                                     *is_partitioned*
+>
+    if (std::is_partitioned(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+      } ) ) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`mkh`                                                     *make_heap*
+>
+    std::make_heap(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`fil`                                                     *fill*
+>
+    std::fill(std::begin(%\m C%), std::end(%\m C%), %\c);
+
+<
+-------------------------------------------------------------------------------
+
+`fin`                                                     *find_if_not*
+>
+    auto pos = std::find_if_not(std::begin(%\m C%), std::end(%\m C%),[](%\c) {
+      %\c
+    } );
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`lwr`                                                     *transform*
+>
+    std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
+    return std::tolower(c); } );
+
+<
+-------------------------------------------------------------------------------
+
+`lxc`                                                     *lexigraphical_compare*
+>
+    if (std::lexigraphical_compare(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`shf`                                                     *random_shuffle*
+>
+    std::random_shuffle(std::begin(%\m C%), std::end(%\m C%));
+
+<
+-------------------------------------------------------------------------------
+
+`ajf`                                                     *adjacent_find*
+>
+    auto pos = std::adjacent_find(std::begin(%\m C%), std::end(%\m C%));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
+`trm`                                                     *generate_n*
+>
+    %\m C%.erase(%\m C%.find_last_not_of(" \t\n\r") + 1);
+
+<
+-------------------------------------------------------------------------------
+
+`gnn`                                                     *generate_n*
+>
+    std::generate_n(std::begin(%\m C%), %\c, [](%\c) {
+      %\c
+    } );
+
+<
+-------------------------------------------------------------------------------
+
+`nno`                                                     *none_of*
+>
+    if (std::none_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    } ) ) {
+      %\c
+    }
+
+<
+-------------------------------------------------------------------------------
+
