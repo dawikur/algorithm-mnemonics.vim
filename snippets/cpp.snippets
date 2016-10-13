@@ -2,7 +2,7 @@
 
 snippet acl "accumulate"
 	auto sum = std::accumulate(std::begin(${1:container}), std::end($1), 0,
-	                           [](int const total, ${2:auto const value}) {
+	                           [](auto const total, ${2:auto const value}) {
 		${3}
 	});${0}
 snippet acm "accumulate"
@@ -29,30 +29,34 @@ snippet ano "any_of"
 snippet sti "cin"
 	std::cin >> ${0}
 snippet cpy "copy"
-	std::copy(std::begin(${1:input}), std::end($1), std::begin(${2:output}));${0}
+	std::copy(std::begin(${1:input}), std::end($1),
+	          std::begin(${2:output}));${0}
 snippet oit "copy"
 	std::copy(std::begin(${1:container}), std::end($1),
 	          ${2:std::ostream_iterator<string>(std::cout, "\n")});${0}
 snippet cpb "copy_backward"
-	std::copy_backward(std::begin(${1:input}), std::end($1), std::end(${2:output}));${0}
+	std::copy_backward(std::begin(${1:input}), std::end($1),
+	                   std::end(${2:output}));${0}
 snippet cpi "copy_if"
-	std::copy_if(std::begin(${1:input}), std::end($1), std::begin(${2:output}),
+	std::copy_if(std::begin(${1:input}), std::end($1),
+	             std::begin(${2:output}),
 	             [](${3:auto const value}) {
 		${4}
 	});${0}
 snippet cpn "copy_n"
 	std::copy_n(std::begin(${1:input}), ${2:count}, std::end(${3:output}));${0}
 snippet cnt "count"
-	auto count = std::count(std::begin(${1:container}), std::end($1), ${2:value});${0}
+	auto n = std::count(std::begin(${1:container}), std::end($1), ${2:value});${0}
 snippet cni "count_if"
-	auto count = std::count_if(std::begin(${1:container}), std::end($1),
-	                           [](${2:auto const value}) {
+	auto n = std::count_if(std::begin(${1:container}), std::end($1),
+	                       [](${2:auto const value}) {
 		${3}
 	});${0}
 snippet sto "cout"
 	std::cout << ${0}
 snippet eql "equal"
-	if (std::equal(std::begin(${1:container1}), std::end($1), std::begin(${2:container2}))) {
+	if (std::equal(std::begin(${1:container1}), std::end($1),
+	               std::begin(${2:container2}))) {
 		${3}
 	}${0}
 snippet fil "fill"
@@ -107,8 +111,6 @@ snippet gnn "generate_n"
 	                [](${3:auto const value}) {
 		${4}
 	});${0}
-snippet trm "generate_n"
-	${1:container}.erase($1.find_last_not_of(" \t\n\r") + 1);
 snippet ita "iota"
 	std::iota(std::begin(${1:container}), std::end($1), ${2:initial_value});${0}
 snippet ihp "is_heap"
@@ -145,6 +147,12 @@ snippet lxc "lexigraphical_compare"
 	                               std::begin(${2:container2}), std::end($2)) {
 		${3}
 	}${0}
+snippet lwr "lower"
+	std::transform(std::begin(${1:input}), std::end($1),
+	               std::begin(${2:output}),
+	               [](${3:char const c}) {
+		return ${4:std::tolower(c)};
+	});${0}
 snippet mkh "make_heap"
 	std::make_heap(std::begin(${1:container}), std::end($1));
 snippet mxe "max_element"
@@ -240,7 +248,9 @@ snippet rmf "remove_copy_if"
 snippet rpl "replace"
 	std::replace(std::begin(${1:container}), std::end($1), ${2:old_value}, ${3:new_value});${0}
 snippet rpc "replace_copy"
-	std::replace_copy(std::begin(${1:input}), std::end($1), std::begin(${2:output}), ${3:old_value}, ${4:new_value});${0}
+	std::replace_copy(std::begin(${1:input}), std::end($1),
+	                  std::begin(${2:output}),
+	                  ${3:old_value}, ${4:new_value});${0}
 snippet rci "replace_copy_if"
 	std::replace_copy_if(std::begin(${1:input}), std::end($1),
 	                     std::begin(${2:output}),
@@ -248,7 +258,8 @@ snippet rci "replace_copy_if"
 		${4}
 	}, ${5:new_value});${0}
 snippet rpi "replace_if"
-	std::replace_if(std::begin(${1:container}), std::end($1), [](${2:auto const element}) {
+	std::replace_if(std::begin(${1:container}), std::end($1),
+	               [](${2:auto const element}) {
 		${3}
 	}, ${4:new_value});${0}
 snippet rvr "reverse"
@@ -267,7 +278,8 @@ snippet srh "search"
 		${3}
 	}${0}
 snippet srn "search_n"
-	auto pos = std::search_n(std::begin(${1:container}), std::end($1), ${2:count}, ${3:value}});
+	auto pos = std::search_n(std::begin(${1:container}), std::end($1),
+	                         ${2:count}, ${3:value}});
 	if (pos != std::end($1)) {
 		${4}
 	}${0}
@@ -284,28 +296,28 @@ snippet spt "stable_partition"
 snippet sts "stable_sort"
 	std::stable_sort(std::begin(${1:container}), std::end($1));
 snippet swr "swap_ranges"
-	std::swap_ranges(std::begin(${1:container}), std::end($1), std::begin(${2:container2}));${0}
+	std::swap_ranges(std::begin(${1:container1}), std::end($1),
+	                 std::begin(${2:container2}));${0}
 snippet tfm "transform"
 	std::transform(std::begin(${1:input}), std::end($1),
 	               std::begin(${2:output}),
 	               [](${3:auto const value}) {
 		${4}
 	});${0}
-snippet lwr "transform"
-	std::transform(std::begin(${1:input}), std::end($1), std::begin(${2:output}),
-	               [](${3:auto const value}) {
-		${4}
-	});${0}
-snippet upr "transform"
-	std::transform(std::begin(${1:input}), std::end($1), std::begin(${2:output}), [](${3:auto const element}) {
-		return ${4:std::toupper(c)};
-	});${0}
-snippet ltr "transform"
+snippet ltr "trim left"
 	${1:container}.erase(0, $1.find_first_not_of(${2:" \t\n\r"}));${0}
+snippet trm "trim right"
+	${1:container}.erase($1.find_last_not_of(" \t\n\r") + 1);${0}
 snippet uqe "unique"
 	auto pos = std::unique(std::begin(${1:container}), std::end($1));${0}
 snippet ucp "unique_copy"
 	std::unique_copy(std::begin(${1:container}), std::end($1),
 	                 ${2:std::ostream_iterator<string>(std::cout, "\n")});${0}
+snippet upr "upper"
+	std::transform(std::begin(${1:input}), std::end($1),
+	               std::begin(${2:output}),
+	               [](${3:char const c}) {
+		return ${4:std::toupper(c)};
+	});${0}
 snippet stv "vector"
 	std::vector<${1:type}> ${0}
