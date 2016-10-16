@@ -1,4 +1,4 @@
-*algorithm_mnemonics.txt* Vim snippets to bust your productivity.
+*algorithm_mnemonics.txt* Vim snippets to burst your productivity.
 
 ===============================================================================
 MNEMONICS                                                 *algorithm_mnemonics*
@@ -108,7 +108,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-'rci'                                               *algorithm_mnemonics_replace_copy_if*
+'rci'                                     *algorithm_mnemonics_replace_copy_if*
 >
     std::replace_copy_if(std::begin(%\m C%), std::end(%\m C%),
       std::begin(%\m C%), [](%\c) {
@@ -183,7 +183,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-'rte'                                               *algorithm_mnemonics_rotate*
+'rte'                                              *algorithm_mnemonics_rotate*
 >
     std::rotate(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%));
 <
@@ -209,7 +209,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
     Nonmodifying                             *algorithm_mnemonics_nonmodifying*
 
-'ajf'                                               *algorithm_mnemonics_adjacent_find*
+'ajf'                                       *algorithm_mnemonics_adjacent_find*
 >
     auto pos = std::adjacent_find(std::begin(%\m C%), std::end(%\m C%));
     if (pos != std::end(%\m C%)) {
