@@ -79,10 +79,10 @@ snippet prp "prev_permutation"
 		${2}
 	}${0}
 snippet rtc "rotate_copy"
-	std::rotate_copy(std::begin(${1:${VISUAL:input}}), std::begin(${2:nth}), std::end($1),
+	std::rotate_copy(std::begin(${1:${VISUAL:input}}), std::begin(${2:middle}), std::end($1),
 	                 std::begin(${2:output}));${0}
 snippet rte "rotate"
-	std::rotate(std::begin(${1:${VISUAL:container}}), std::begin(${2:nth}), std::end($1));${0}
+	std::rotate(std::begin(${1:${VISUAL:container}}), std::begin(${2:middle}), std::end($1));${0}
 snippet rvc "reverse_copy"
 	std::reverse_copy(std::begin(${1:${VISUAL:input}}), std::end($1), std::begin(${2:output}));
 snippet rvr "reverse"
@@ -295,16 +295,22 @@ snippet mrg "merge"
 	           std::begin(${2:input2}), std::end($2),
 	           std::begin(${3:output}));${0}
 snippet ssd "set_symmetric_difference"
-	auto pos = std::set_symmetric_difference(std::begin(${1:${VISUAL:input1}}), std::end($1),
-	                                         std::begin(${2:input2}), std::end($2),
+	auto pos = std::set_symmetric_difference(std::begin(${1:${VISUAL:input1}}),
+	                                         std::end($1),
+	                                         std::begin(${2:input2}),
+	                                         std::end($2),
 	                                         std::begin(${3:output}));${0}
 snippet std "set_difference"
-	auto pos = std::set_difference(std::begin(${1:${VISUAL:input1}}), std::end($1),
-	                               std::begin(${2:input2}), std::end($2),
+	auto pos = std::set_difference(std::begin(${1:${VISUAL:input1}}),
+	                               std::end($1),
+	                               std::begin(${2:input2}),
+	                               std::end($2),
 	                               std::begin(${3:output}));${0}
 snippet stn "set_intersection"
-	auto pos = std::set_intersection(std::begin(${1:${VISUAL:input1}}), std::end($1),
-	                                 std::begin(${2:input2}), std::end($2),
+	auto pos = std::set_intersection(std::begin(${1:${VISUAL:input1}}),
+	                                 std::end($1),
+	                                 std::begin(${2:input2}),
+	                                 std::end($2),
 	                                 std::begin(${3:output}));${0}
 snippet stu "set_union"
 	auto pos = std::set_union(std::begin(${1:${VISUAL:input1}}), std::end($1),
@@ -314,7 +320,9 @@ snippet ucp "unique_copy"
 	std::unique_copy(std::begin(${1:${VISUAL:container}}), std::end($1),
 	                 ${2:std::ostream_iterator<string>(std::cout, "\n")});${0}
 snippet upb "upper_bound"
-	auto pos = std::upper_bound(std::begin(${1:${VISUAL:container}}), std::end($1), ${2:value});
+	auto pos = std::upper_bound(std::begin(${1:${VISUAL:container}}),
+	                            std::end($1),
+	                            ${2:value});
 	if (pos != std::end($1)) {
 		${3}
 	}${0}
@@ -322,16 +330,18 @@ snippet upb "upper_bound"
 snippet mkh "make_heap"
 	std::make_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
 snippet nth "nth_element"
-	std::nth_element(std::begin(${1:${VISUAL:container}}), std::end(${2:nth}), std::end($1));${0}
+	std::nth_element(std::begin(${1:${VISUAL:container}}), std::end(${2:nth}),
+	                 std::end($1));${}
 snippet phh "push_heap"
-	std::push_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
+	std::push_heap(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 snippet pph "pop_heap"
-	std::pop_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
+	std::pop_heap(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 snippet psc "partial_sort_copy"
 	std::partial_sort_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                       std::begin(${2:output}), std::end($2));${0}
 snippet pst "partial_sort"
-	std::partial_sort(std::begin(${1:${VISUAL:container}}), std::begin(${2:nth}), std::end($1));${0}
+	std::partial_sort(std::begin(${1:${VISUAL:container}}), ${2:middle},
+	                  std::end($1));${0}
 snippet ptc "partition_copy"
 	std::partition_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                    std::begin(${2:true_output}), std::end(${3:false_output}),
@@ -347,7 +357,8 @@ snippet ptn "partition"
 		${4}
 	}${0}
 snippet spt "stable_partition"
-	auto pos = std::stable_partition(std::begin(${1:${VISUAL:container}}), std::end($1),
+	auto pos = std::stable_partition(std::begin(${1:${VISUAL:container}}),
+	                                 std::end($1),
 	                                 [](${2:auto const value}) {
 		${3}
 	});
@@ -357,31 +368,27 @@ snippet spt "stable_partition"
 snippet srt "sort"
 	std::sort(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 snippet sth "sort_heap"
-	std::sort_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
+	std::sort_heap(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 snippet sts "stable_sort"
-	std::stable_sort(std::begin(${1:${VISUAL:container}}), std::end($1));
+	std::stable_sort(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 # Streams
 snippet oit "copy"
 	std::copy(std::begin(${1:${VISUAL:container}}), std::end($1),
-	          ${2:std::ostream_iterator<string>(std::cout, "\n")});${0}
+	          std::ostream_iterator<${2:string}>(std::cout, ${3:"\n"}));${0}
 snippet sti "cin"
 	std::cin >> ${0}
 snippet sto "cout"
 	std::cout << ${0}
 # Strings
 snippet ltr "string_trim_left"
-	${1:${VISUAL:container}}.erase(0, $1.find_first_not_of(${2:" \t\n\r"}));${0}
+	${1:${VISUAL:string}}.erase(0, $1.find_first_not_of(" \t\n\r"));${0}
 snippet lwr "string_lower"
 	std::transform(std::begin(${1:${VISUAL:input}}), std::end($1),
 	               std::begin(${2:output}),
-	               [](${3:char const c}) {
-		return ${4:std::tolower(c)};
-	});${0}
+	               [](char const c) { return std::tolower(c); });${0}
 snippet trm "string_trim_right"
-	${1:${VISUAL:container}}.erase($1.find_last_not_of(" \t\n\r") + 1);${0}
+	${1:${VISUAL:string}}.erase($1.find_last_not_of(" \t\n\r") + 1);${0}
 snippet upr "string_upper"
 	std::transform(std::begin(${1:${VISUAL:input}}), std::end($1),
 	               std::begin(${2:output}),
-	               [](${3:char const c}) {
-		return ${4:std::toupper(c)};
-	});${0}
+	               [](char const c) { return std::toupper(c); });${0}

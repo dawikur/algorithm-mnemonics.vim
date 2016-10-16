@@ -1,418 +1,398 @@
 *algorithm_mnemonics.txt* Vim snippets to bust your productivity.
 
 ===============================================================================
-LIST                                                      *algorithm_mnemonics*
+MNEMONICS                                                 *algorithm_mnemonics*
 
-    *acl*                               |algorithm_mnemonics_accumulate|
-    *acm*                               |algorithm_mnemonics_accumulate|
-    *ajf*                               |algorithm_mnemonics_adjacent_find|
-    *alo*                               |algorithm_mnemonics_all_of|
-    *ano*                               |algorithm_mnemonics_any_of|
-    *cni*                               |algorithm_mnemonics_count_if|
-    *cnt*                               |algorithm_mnemonics_count|
-    *cpb*                               |algorithm_mnemonics_copy_backward|
-    *cpi*                               |algorithm_mnemonics_copy_if|
-    *cpn*                               |algorithm_mnemonics_copy_n|
-    *cpy*                               |algorithm_mnemonics_copy|
-    *eql*                               |algorithm_mnemonics_equal|
-    *erm*                               |algorithm_mnemonics_remove|
-    *ffo*                               |algorithm_mnemonics_find_first_of|
-    *fil*                               |algorithm_mnemonics_fill|
-    *fin*                               |algorithm_mnemonics_find_if_not|
-    *fln*                               |algorithm_mnemonics_fill_n|
-    *fnd*                               |algorithm_mnemonics_find|
-    *fne*                               |algorithm_mnemonics_find_end|
-    *fni*                               |algorithm_mnemonics_find_if|
-    *fre*                               |algorithm_mnemonics_for_each|
-    *gnn*                               |algorithm_mnemonics_generate_n|
-    *gnr*                               |algorithm_mnemonics_generate|
-    *ihp*                               |algorithm_mnemonics_is_heap|
-    *ihu*                               |algorithm_mnemonics_is_heap_until|
-    *ipr*                               |algorithm_mnemonics_is_permutation|
-    *ipt*                               |algorithm_mnemonics_is_partitioned|
-    *iss*                               |algorithm_mnemonics_is_sorted|
-    *isu*                               |algorithm_mnemonics_is_sorted_until|
-    *ita*                               |algorithm_mnemonics_iota|
-    *ltr*                               |algorithm_mnemonics_trim_left|
-    *lwr*                               |algorithm_mnemonics_tolower|
-    *lxc*                               |algorithm_mnemonics_lexigraphical_compare|
-    *mkh*                               |algorithm_mnemonics_make_heap|
-    *mme*                               |algorithm_mnemonics_minmax_element|
-    *mne*                               |algorithm_mnemonics_min_element|
-    *mpb*                               |algorithm_mnemonics_move_backward|
-    *mrg*                               |algorithm_mnemonics_merge|
-    *msm*                               |algorithm_mnemonics_mismatch|
-    *mxe*                               |algorithm_mnemonics_max_element|
-    *nno*                               |algorithm_mnemonics_none_of|
-    *nth*                               |algorithm_mnemonics_nth_element|
-    *nxp*                               |algorithm_mnemonics_next_permutation|
-    *oit*                               |algorithm_mnemonics_copy|
-    *phh*                               |algorithm_mnemonics_push_heap|
-    *ppt*                               |algorithm_mnemonics_partition_point|
-    *prp*                               |algorithm_mnemonics_prev_permutation|
-    *psc*                               |algorithm_mnemonics_partial_sort_copy|
-    *pst*                               |algorithm_mnemonics_partial_sort|
-    *ptc*                               |algorithm_mnemonics_partition_copy|
-    *ptn*                               |algorithm_mnemonics_partition|
-    *rci*                               |algorithm_mnemonics_replace_copy_if|
-    *rmc*                               |algorithm_mnemonics_remove_copy|
-    *rmf*                               |algorithm_mnemonics_remove_copy_if|
-    *rmi*                               |algorithm_mnemonics_remove_if|
-    *rmv*                               |algorithm_mnemonics_remove|
-    *rpc*                               |algorithm_mnemonics_replace_copy|
-    *rpi*                               |algorithm_mnemonics_replace_if|
-    *rpl*                               |algorithm_mnemonics_replace|
-    *rtc*                               |algorithm_mnemonics_rotate_copy|
-    *rte*                               |algorithm_mnemonics_rotate|
-    *rvc*                               |algorithm_mnemonics_reverse_copy|
-    *rvr*                               |algorithm_mnemonics_reverse|
-    *shf*                               |algorithm_mnemonics_random_shuffle|
-    *spt*                               |algorithm_mnemonics_stable_partition|
-    *srh*                               |algorithm_mnemonics_search|
-    *srn*                               |algorithm_mnemonics_search_n|
-    *srt*                               |algorithm_mnemonics_sort|
-    *sth*                               |algorithm_mnemonics_sort_heap|
-    *sti*                               |algorithm_mnemonics_cin|
-    *sto*                               |algorithm_mnemonics_cout|
-    *sts*                               |algorithm_mnemonics_stable_sort|
-    *stv*                               |algorithm_mnemonics_vector|
-    *swr*                               |algorithm_mnemonics_swap_ranges|
-    *tfm*                               |algorithm_mnemonics_transform|
-    *trm*                               |algorithm_mnemonics_trim_right|
-    *ucp*                               |algorithm_mnemonics_unique_copy|
-    *upr*                               |algorithm_mnemonics_toupper|
-    *uqe*                               |algorithm_mnemonics_unique|
+    Containers    .........................    |algorithm_mnemonics_containers|
+    Idioms    .................................    |algorithm_mnemonics_idioms|
+    Modifying    ...........................    |algorithm_mnemonics_modifying|
+    Mutating    .............................    |algorithm_mnemonics_mutating|
+    Nonmodifying    .....................    |algorithm_mnemonics_nonmodifying|
+    Numeric    ...............................    |algorithm_mnemonics_numeric|
+    Removing    .............................    |algorithm_mnemonics_removing|
+    Sorted Ranges    ...................    |algorithm_mnemonics_sorted_ranges|
+    Sorting    ...............................    |algorithm_mnemonics_sorting|
+    Streams    ...............................    |algorithm_mnemonics_streams|
+    Strings    ................................    |algorithm_mnemonics_string|
 
 ===============================================================================
-`ihp`                    *algorithm_mnemonics_is_heap*
+
+    Containers                                 *algorithm_mnemonics_containers*
+
+'stv'                                              *algorithm_mnemonics_vector*
+>
+    std::vector<%\c> %\c
+<
+-------------------------------------------------------------------------------
+
+    Idioms                                         *algorithm_mnemonics_idioms*
+
+'erm'                                               *algorithm_mnemonics_erase*
+>
+    %\m C%.erase(std::remove(std::begin(%\m C%), std::end(%\m C%), %\c), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+    Modifying                                   *algorithm_mnemonics_modifying*
+
+'cpb'                                       *algorithm_mnemonics_copy_backward*
+>
+    std::copy_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'cpi'                                             *algorithm_mnemonics_copy_if*
+>
+    std::copy_if(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c),
+    [](%\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'cpn'                                              *algorithm_mnemonics_copy_n*
+>
+    std::copy_n(std::begin(%\m C%), %\c, std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'cpy'                                                *algorithm_mnemonics_copy*
+>
+    std::copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'fil'                                                *algorithm_mnemonics_fill*
+>
+    std::fill(std::begin(%\m C%), std::end(%\m C%), %\c);
+<
+-------------------------------------------------------------------------------
+
+'fln'                                              *algorithm_mnemonics_fill_n*
+>
+    std::fill_n(std::begin(%\m C%), %\c, %\c);
+<
+-------------------------------------------------------------------------------
+
+'gnn'                                          *algorithm_mnemonics_generate_n*
+>
+    std::generate_n(std::begin(%\m C%), %\c, [](%\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'gnr'                                            *algorithm_mnemonics_generate*
+>
+    std::generate(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'ita'                                               *algorithm_mnemonics_iota*
+>
+    std::iota(std::begin(%\m C%), std::end(%\m C%), %\c);
+<
+-------------------------------------------------------------------------------
+
+'mov'                                                *algorithm_mnemonics_move*
+>
+    std::move(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'mvb'                                       *algorithm_mnemonics_move_backward*
+>
+    std::move_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'rci'                                               *algorithm_mnemonics_replace_copy_if*
+>
+    std::replace_copy_if(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+      %\c
+      }, %\c);
+<
+-------------------------------------------------------------------------------
+
+'rpc'                                        *algorithm_mnemonics_replace_copy*
+>
+    std::replace_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), %\c, %\c);
+<
+-------------------------------------------------------------------------------
+
+'rpi'                                          *algorithm_mnemonics_replace_if*
+>
+    std::replace_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+    %\c
+    }, %\c);
+<
+-------------------------------------------------------------------------------
+
+'rpl'                                             *algorithm_mnemonics_replace*
+>
+    std::replace(std::begin(%\m C%), std::end(%\m C%), %\c, %\c);
+<
+-------------------------------------------------------------------------------
+
+'swp'                                               *algorithm_mnemonics_swap*
+>
+    std::swap(%\m C%, %\c);
+<
+-------------------------------------------------------------------------------
+
+'swr'                                         *algorithm_mnemonics_swap_ranges*
+>
+    std::swap_ranges(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'tfm'                                           *algorithm_mnemonics_transform*
+>
+    std::transform(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+    %\c%
+    });
+<
+-------------------------------------------------------------------------------
+
+    Mutating                                     *algorithm_mnemonics_mutating*
+
+'nxp'                                    *algorithm_mnemonics_next_permutation*
+>
+    if (std::next_permutation(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'prp'                                    *algorithm_mnemonics_prev_permutation*
+>
+    if (std::prev_permutation(std::begin(%\m C%), std::end(%\m C%))) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'rtc'                                         *algorithm_mnemonics_rotate_copy*
+>
+    std::rotate_copy(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%),
+      std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'rte'                                               *algorithm_mnemonics_rotate*
+>
+    std::rotate(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'rvc'                                        *algorithm_mnemonics_reverse_copy*
+>
+    std::reverse_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'rvr'                                             *algorithm_mnemonics_reverse*
+>
+    std::reverse(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'shf'                                      *algorithm_mnemonics_random_shuffle*
+>
+    std::random_shuffle(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+    Nonmodifying                             *algorithm_mnemonics_nonmodifying*
+
+'ajf'                                               *algorithm_mnemonics_adjacent_find*
+>
+    auto pos = std::adjacent_find(std::begin(%\m C%), std::end(%\m C%));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'alo'                                              *algorithm_mnemonics_all_of*
+>
+    if (std::all_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    })) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'ano'                                              *algorithm_mnemonics_any_of*
+>
+    if (std::any_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    })) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'cni'                                            *algorithm_mnemonics_count_if*
+>
+    auto n = std::count_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'cnt'                                               *algorithm_mnemonics_count*
+>
+    auto n = std::count(std::begin(%\m C%), std::end(%\m C%), %\c);
+<
+-------------------------------------------------------------------------------
+
+'eql'                                               *algorithm_mnemonics_equal*
+>
+    if (std::equal(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'ffo'                                       *algorithm_mnemonics_find_first_of*
+>
+    auto pos = std::find_first_of(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'fin'                                         *algorithm_mnemonics_find_if_not*
+>
+    auto pos = std::find_if_not(std::begin(%\m C%), std::end(%\m C%),[](%\c) {
+      %\c
+    });
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'fnd'                                                *algorithm_mnemonics_find*
+>
+    auto pos = std::find(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'fne'                                            *algorithm_mnemonics_find_end*
+>
+    auto pos = std::find_std::end(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c));
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'fni'                                             *algorithm_mnemonics_find_if*
+>
+    auto pos = std::find_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'fre'                                            *algorithm_mnemonics_for_each*
+>
+    std::for_each(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'ihp'                                             *algorithm_mnemonics_is_heap*
 >
     if (std::is_heap(std::begin(%\m C%), std::end(%\m C%))) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`mme`                    *algorithm_mnemonics_minmax_element*
->
-    auto minmax = std::minmax_element(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`ihu`                    *algorithm_mnemonics_is_heap_until*
+'ihu'                                       *algorithm_mnemonics_is_heap_until*
 >
     auto pos = std::is_heap_until(std::begin(%\m C%), std::end(%\m C%));
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`acl`                    *algorithm_mnemonics_accumulate*
+'ipr'                                      *algorithm_mnemonics_is_permutation*
 >
-    auto sum = std::accumulate( std::begin(%\m C%), std::end(%\m C%), 0, [](int total, %\c) {
-      %\c
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`eql`                    *algorithm_mnemonics_equal*
->
-    if (std::equal(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
+    if (std::is_permutation(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`acm`                    *algorithm_mnemonics_accumulate*
+'ipt'                                      *algorithm_mnemonics_is_partitioned*
 >
-    auto sum = std::accumulate(std::begin(%\m C%), std::end(%\m C%), 0);
-
+    if (std::is_partitioned(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+      })) {
+      %\c
+    }
 <
 -------------------------------------------------------------------------------
 
-`ucp`                    *algorithm_mnemonics_unique_copy*
->
-    std::unique_copy(std::begin(%\m C%), std::end(%\m C%),
-      std::ostream_iterator&lt;string&gt;(std::cout, "\n"));
-
-<
--------------------------------------------------------------------------------
-
-`ita`                    *algorithm_mnemonics_iota*
->
-    std::iota(std::begin(%\m C%), std::end(%\m C%), %\c);
-
-<
--------------------------------------------------------------------------------
-
-`iss`                    *algorithm_mnemonics_is_sorted*
+'iss'                                           *algorithm_mnemonics_is_sorted*
 >
     if (std::is_sorted(std::begin(%\m C%), std::end(%\m C%))) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`rpc`                    *algorithm_mnemonics_replace_copy*
->
-    std::replace_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), %\c, %\c);
-
-<
--------------------------------------------------------------------------------
-
-`isu`                    *algorithm_mnemonics_is_sorted_until*
+'isu'                                     *algorithm_mnemonics_is_sorted_until*
 >
     auto pos = std::is_sorted_until(std::begin(%\m C%), std::end(%\m C%));
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`rmv`                    *algorithm_mnemonics_remove*
+'lxc'                               *algorithm_mnemonics_lexigraphical_compare*
 >
-    auto pos = std::remove(std::begin(%\m C%), std::end(%\m C%), %\c);
-    if (pos != std::end(%\m C%)) {
+    if (std::lexigraphical_compare(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`nth`                    *algorithm_mnemonics_nth_element*
+'mme'                                      *algorithm_mnemonics_minmax_element*
 >
-    std::nth_element(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
-
+    auto minmax = std::minmax_element(std::begin(%\m C%), std::end(%\m C%));
 <
 -------------------------------------------------------------------------------
 
-`rpi`                    *algorithm_mnemonics_replace_if*
+'mne'                                         *algorithm_mnemonics_min_element*
 >
-    std::replace_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-    %\c
-    }, %\c);
-
+    auto pos = std::min_element(std::begin(%\m C%), std::end(%\m C%));
 <
 -------------------------------------------------------------------------------
 
-`rpl`                    *algorithm_mnemonics_replace*
->
-    std::replace(std::begin(%\m C%), std::end(%\m C%), %\c, %\c);
-
-<
--------------------------------------------------------------------------------
-
-`erm`                    *algorithm_mnemonics_remove*
->
-    %\m C%.erase( std::remove( std::begin(%\m C%), std::end(%\m C%), %\c ), std::end(%\m C%) );
-
-<
--------------------------------------------------------------------------------
-
-`tfm`                    *algorithm_mnemonics_transform*
->
-    std::transform(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\m C%), [](%\c) {
-    %\c%
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`fln`                    *algorithm_mnemonics_fill_n*
->
-    std::fill_n(std::begin(%\m C%), %\c, %\c );
-
-<
--------------------------------------------------------------------------------
-
-`alo`                    *algorithm_mnemonics_all_of*
->
-    if (std::all_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } ) ) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`prp`                    *algorithm_mnemonics_prev_permutation*
->
-    if (std::prev_permutation(std::begin(%\m C%), std::end(%\m C%))) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`ltr`                    *algorithm_mnemonics_trim_left*
->
-    %\m C%.erase(0, %\m C%.find_first_not_of(" \t\n\r"));
-
-<
--------------------------------------------------------------------------------
-
-`upr`                    *algorithm_mnemonics_toupper*
->
-    std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
-    return std::toupper(c);
-    } );
-    %\c
-
-<
--------------------------------------------------------------------------------
-
-`psc`                    *algorithm_mnemonics_partial_sort_copy*
->
-    std::partial_sort_copy(std::begin(%\m C%), std::end(%\m C%),
-                    *algorithm_mnemonics_std::begin(%\c), std::end(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`ppt`                    *algorithm_mnemonics_partition_point*
->
-    auto pos = std::partition_point(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } );
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`cnt`                    *algorithm_mnemonics_count*
->
-    auto n = std::count(std::begin(%\m C%), std::end(%\m C%), %\c);
-
-<
--------------------------------------------------------------------------------
-
-`uqe`                    *algorithm_mnemonics_unique*
->
-    auto pos = std::unique(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`sti`                    *algorithm_mnemonics_cin*
->
-    std::cin &gt;&gt;
-
-<
--------------------------------------------------------------------------------
-
-`cpy`                    *algorithm_mnemonics_copy*
->
-    std::copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`sto`                    *algorithm_mnemonics_cout*
->
-    std::cout &lt;&lt;
-
-<
--------------------------------------------------------------------------------
-
-`cpb`                    *algorithm_mnemonics_copy_backward*
->
-    std::copy_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`swr`                    *algorithm_mnemonics_swap_ranges*
->
-    std::swap_ranges(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`rtc`                    *algorithm_mnemonics_rotate_copy*
->
-    std::rotate_copy(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%),
-      std::begin(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`mxe`                    *algorithm_mnemonics_max_element*
->
-    auto pos = std::max_element(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`rte`                    *algorithm_mnemonics_rotate*
->
-    std::rotate(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`stv`                    *algorithm_mnemonics_vector*
->
-    std::vector&lt;%\c&gt; %\c
-
-<
--------------------------------------------------------------------------------
-
-`cpi`                    *algorithm_mnemonics_copy_if*
->
-    std::copy_if(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c),
-    [](%\c) {
-      %\c
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`cni`                    *algorithm_mnemonics_count_if*
->
-    auto n = std::count_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    });
-
-<
--------------------------------------------------------------------------------
-
-`cpn`                    *algorithm_mnemonics_copy_n*
->
-    std::copy_n(std::begin(%\m C%), %\c, std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`srt`                    *algorithm_mnemonics_sort*
->
-    std::sort(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`spt`                    *algorithm_mnemonics_stable_partition*
->
-    auto pos = std::stable_partition(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c});
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`msm`                    *algorithm_mnemonics_mismatch*
+'msm'                                            *algorithm_mnemonics_mismatch*
 >
     auto values = std::mismatch(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%));
     if (values.first == std::end(%\m C%)) {
@@ -420,101 +400,262 @@ LIST                                                      *algorithm_mnemonics*
     } else {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`mpb`                    *algorithm_mnemonics_move_backward*
+'mxe'                                         *algorithm_mnemonics_max_element*
 >
-    std::move_backward(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
-
+    auto pos = std::max_element(std::begin(%\m C%), std::end(%\m C%));
 <
 -------------------------------------------------------------------------------
 
-`ptc`                    *algorithm_mnemonics_partition_copy*
+'nno'                                             *algorithm_mnemonics_none_of*
 >
-    std::partition_copy(std::begin(%\m C%), std::end(%\m C%),
-                    *algorithm_mnemonics_std::begin(%\c), std::end(%\c));
-
+    if (std::none_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    })) {
+      %\c
+    }
 <
 -------------------------------------------------------------------------------
 
-`pst`                    *algorithm_mnemonics_partial_sort*
+'ppt'                                     *algorithm_mnemonics_partition_point*
 >
-    std::partial_sort(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`fnd`                    *algorithm_mnemonics_find*
->
-    auto pos = std::find(std::begin(%\m C%), std::end(%\m C%), %\c);
+    auto pos = std::partition_point(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c
+    });
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`fre`                    *algorithm_mnemonics_for_each*
->
-    std::for_each( std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`mne`                    *algorithm_mnemonics_min_element*
->
-    auto pos = std::min_element(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`fne`                    *algorithm_mnemonics_find_end*
->
-    auto pos = std::find_std::end(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\c), std::end(%\c));
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`mrg`                    *algorithm_mnemonics_merge*
->
-    std::merge(std::begin(%\m C%), std::end(%\m C%),
-    std::begin(%\c), std::end(%\c), std::begin(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`srh`                    *algorithm_mnemonics_search*
+'srh'                                              *algorithm_mnemonics_search*
 >
     auto pos = std::search(std::begin(%\m C%), std::end(%\m C%),
       std::begin(%\c), std::end(%\c));
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`fni`                    *algorithm_mnemonics_find_if*
+'srn'                                            *algorithm_mnemonics_search_n*
 >
-    auto pos = std::find_if(std::begin(%\m C%), std::end(%\m C%), []( %\c ) {
+    auto pos = std::search_n(std::begin(%\m C%), std::end(%\m C%),%\c,%\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+
+    Numeric                                       *algorithm_mnemonics_numeric*
+
+'acl'                                          *algorithm_mnemonics_accumulate*
+>
+    auto sum = std::accumulate(std::begin(%\m C%), std::end(%\m C%), 0, [](int total, %\c) {
+      %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'acm'                                          *algorithm_mnemonics_accumulate*
+>
+    auto sum = std::accumulate(std::begin(%\m C%), std::end(%\m C%), 0);
+<
+-------------------------------------------------------------------------------
+
+    Removing                                     *algorithm_mnemonics_removing*
+
+'rmc'                                         *algorithm_mnemonics_remove_copy*
+>
+    std::remove_copy(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), %\c);
+<
+-------------------------------------------------------------------------------
+
+'rmf'                                      *algorithm_mnemonics_remove_copy_if*
+>
+    std::remove_copy_if(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\m C%), [](%\c) {
+        %\c
+    });
+<
+-------------------------------------------------------------------------------
+
+'rmi'                                           *algorithm_mnemonics_remove_if*
+>
+    auto pos = std::remove_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
       %\c
     });
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`ptn`                    *algorithm_mnemonics_partition*
+'rmv'                                              *algorithm_mnemonics_remove*
+>
+    auto pos = std::remove(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'uqe'                                              *algorithm_mnemonics_unique*
+>
+    auto pos = std::unique(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+    Sorted Ranges                           *algorithm_mnemonics_sorted_ranges*
+
+'bns'                                       *algorithm_mnemonics_binary_search*
+>
+    auto pos = std::binary_search(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'eqr'                                         *algorithm_mnemonics_equal_range*
+>
+    auto bounds = std::equal_range(std::begin(%\m C%), std::end(%\m C%), %\c);
+<
+-------------------------------------------------------------------------------
+
+'erl'                                         *algorithm_mnemonics_equal_range*
+>
+    auto bounds = std::equal_range(std::begin(%\m C%), std::end(%\m C%), %\c,
+      [](%\c,%\c) { %\c });
+<
+-------------------------------------------------------------------------------
+
+'inc'                                            *algorithm_mnemonics_includes*
+>
+    if (std::includes(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c))) {
+        %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'ipm                                        *algorithm_mnemonics_inplace_merge*
+>
+    std::inplace_merge(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'lwb'                                         *algorithm_mnemonics_lower_bound*
+>
+    auto pos = std::lower_bound(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+'mrg'                                               *algorithm_mnemonics_merge*
+>
+    std::merge(std::begin(%\m C%), std::end(%\m C%),
+    std::begin(%\c), std::end(%\c), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'ssd'                            *algorithm_mnemonics_set_symmetric_difference*
+>
+    auto pos = std::set_symmetric_difference(std::begin(%\m C%),
+      std::end(%\m C%), std::begin(%\c), std::end(%\c), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'std'                                      *algorithm_mnemonics_set_difference*
+>
+    auto pos = std::set_difference(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'stn'                                    *algorithm_mnemonics_set_intersection*
+>
+    auto pos = std::set_intersection(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'stu'                                           *algorithm_mnemonics_set_union*
+>
+    auto pos = std::set_union(std::begin(%\m C%), std::end(%\m C%),
+      std::begin(%\c), std::end(%\c), std::begin(%\c));
+<
+-------------------------------------------------------------------------------
+
+'ucp'                                         *algorithm_mnemonics_unique_copy*
+>
+    std::unique_copy(std::begin(%\m C%), std::end(%\m C%),
+      std::ostream_iterator<string>(std::cout, "\n"));
+<
+-------------------------------------------------------------------------------
+
+'upb'                                         *algorithm_mnemonics_upper_bound*
+>
+    auto pos = std::upper_bound(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (pos != std::end(%\m C%)) {
+      %\c
+    }
+<
+-------------------------------------------------------------------------------
+
+    Sorting                                       *algorithm_mnemonics_sorting*
+
+'mkh'                                           *algorithm_mnemonics_make_heap*
+>
+    std::make_heap(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'nth'                                         *algorithm_mnemonics_nth_element*
+>
+    std::nth_element(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'phh'                                           *algorithm_mnemonics_push_heap*
+>
+    std::push_heap(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'pph'                                            *algorithm_mnemonics_pop_heap*
+>
+    std::pop_heap(std::begin(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'psc'                                   *algorithm_mnemonics_partial_sort_copy*
+>
+    std::partial_sort_copy(std::begin(%\m C%), std::end(%\m C%),
+                      std::begin(%\c), std::end(%\c));
+<
+-------------------------------------------------------------------------------
+
+'pst'                                        *algorithm_mnemonics_partial_sort*
+>
+    std::partial_sort(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
+<
+-------------------------------------------------------------------------------
+
+'ptc'                                      *algorithm_mnemonics_partition_copy*
+>
+    std::partition_copy(std::begin(%\m C%), std::end(%\m C%),
+                      std::begin(%\c), std::end(%\c));
+<
+-------------------------------------------------------------------------------
+
+'ptn'                                           *algorithm_mnemonics_partition*
 >
     auto pos = std::partition(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
       %\c
@@ -522,249 +663,80 @@ LIST                                                      *algorithm_mnemonics*
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`srn`                    *algorithm_mnemonics_search_n*
+'spt'                                    *algorithm_mnemonics_stable_partition*
 >
-    auto pos = std::search_n(std::begin(%\m C%), std::end(%\m C%),%\c,%\c);
+    auto pos = std::stable_partition(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+      %\c});
     if (pos != std::end(%\m C%)) {
       %\c
     }
-
 <
 -------------------------------------------------------------------------------
 
-`ano`                    *algorithm_mnemonics_any_of*
->
-    if (std::any_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } ) ) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`nxp`                    *algorithm_mnemonics_next_permutation*
->
-    if (std::next_permutation(std::begin(%\m C%), std::end(%\m C%))) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`rvr`                    *algorithm_mnemonics_reverse*
->
-    std::reverse(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`rmc`                    *algorithm_mnemonics_remove_copy*
->
-    std::remove_copy(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\m C%), %\c);
-
-<
--------------------------------------------------------------------------------
-
-`sts`                    *algorithm_mnemonics_stable_sort*
->
-    std::stable_sort(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`rmf`                    *algorithm_mnemonics_remove_copy_if*
->
-    std::remove_copy_if( std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\m C%), [](%\c) {
-        %\c
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`rci`                    *algorithm_mnemonics_replace_copy_if*
->
-    std::replace_copy_if(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\m C%), [](%\c) {
-      %\c
-      }, %\c );
-
-<
--------------------------------------------------------------------------------
-
-`rmi`                    *algorithm_mnemonics_remove_if*
->
-    auto pos = std::remove_if( std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } );
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`rvc`                    *algorithm_mnemonics_reverse_copy*
->
-    std::reverse_copy(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c));
-
-<
--------------------------------------------------------------------------------
-
-`oit`                    *algorithm_mnemonics_copy*
->
-    std::copy( std::begin( %\m C% ), std::end( %\m C% ), std::ostream_iterator&lt;%\c&gt;{
-    %\istd::cout, "%\c"
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`sth`                    *algorithm_mnemonics_sort_heap*
+'sth'                                           *algorithm_mnemonics_sort_heap*
 >
     std::sort_heap(std::begin(%\m C%), std::end(%\m C%));
-
 <
 -------------------------------------------------------------------------------
 
-`phh`                    *algorithm_mnemonics_push_heap*
+'sts'                                         *algorithm_mnemonics_stable_sort*
 >
-    std::push_heap(std::begin(%\m C%), std::end(%\m C%));
-
+    std::stable_sort(std::begin(%\m C%), std::end(%\m C%));
 <
 -------------------------------------------------------------------------------
 
-`ffo`                    *algorithm_mnemonics_find_first_of*
+    Streams                                       *algorithm_mnemonics_streams*
+
+'oit'                                                *algorithm_mnemonics_copy*
 >
-    auto pos = std::find_first_of(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\c), std::end(%\c));
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
+    std::copy(std::begin(%\m C%), std::end(%\m C%), std::ostream_iterator<%\c>{
+    %\istd::cout, "%\c"
+    });
 <
 -------------------------------------------------------------------------------
 
-`gnr`                    *algorithm_mnemonics_generate*
+'sti'                                                 *algorithm_mnemonics_cin*
 >
-    std::generate(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } );
-
+    std::cin >>
 <
 -------------------------------------------------------------------------------
 
-`ipr`                    *algorithm_mnemonics_is_permutation*
+'sto'                                                *algorithm_mnemonics_cout*
 >
-    if (std::is_permutation(std::begin(%\m C%), std::end(%\m C%), std::begin(%\c))) {
-      %\c
-    }
-
+    std::cout <<
 <
 -------------------------------------------------------------------------------
 
-`ipt`                    *algorithm_mnemonics_is_partitioned*
+    Strings                                        *algorithm_mnemonics_string*
+
+'ltr'                                    *algorithm_mnemonics_string_trim_left*
 >
-    if (std::is_partitioned(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-      } ) ) {
-      %\c
-    }
-
+    %\m C%.erase(0, %\m C%.find_first_not_of(" \t\n\r"));
 <
 -------------------------------------------------------------------------------
 
-`mkh`                    *algorithm_mnemonics_make_heap*
->
-    std::make_heap(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`fil`                    *algorithm_mnemonics_fill*
->
-    std::fill(std::begin(%\m C%), std::end(%\m C%), %\c);
-
-<
--------------------------------------------------------------------------------
-
-`fin`                    *algorithm_mnemonics_find_if_not*
->
-    auto pos = std::find_if_not(std::begin(%\m C%), std::end(%\m C%),[](%\c) {
-      %\c
-    } );
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`lwr`                    *algorithm_mnemonics_tolower*
+'lwr'                                        *algorithm_mnemonics_string_lower*
 >
     std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
-    return std::tolower(c); } );
-
+    return std::tolower(c); });
 <
 -------------------------------------------------------------------------------
 
-`lxc`                    *algorithm_mnemonics_lexigraphical_compare*
->
-    if (std::lexigraphical_compare(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\c), std::end(%\c)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`shf`                    *algorithm_mnemonics_random_shuffle*
->
-    std::random_shuffle(std::begin(%\m C%), std::end(%\m C%));
-
-<
--------------------------------------------------------------------------------
-
-`ajf`                    *algorithm_mnemonics_adjacent_find*
->
-    auto pos = std::adjacent_find(std::begin(%\m C%), std::end(%\m C%));
-    if (pos != std::end(%\m C%)) {
-      %\c
-    }
-
-<
--------------------------------------------------------------------------------
-
-`trm`                    *algorithm_mnemonics_trim_right*
+'trm'                                   *algorithm_mnemonics_string_trim_right*
 >
     %\m C%.erase(%\m C%.find_last_not_of(" \t\n\r") + 1);
-
 <
 -------------------------------------------------------------------------------
 
-`gnn`                    *algorithm_mnemonics_generate_n*
+'upr'                                        *algorithm_mnemonics_string_upper*
 >
-    std::generate_n(std::begin(%\m C%), %\c, [](%\c) {
-      %\c
-    } );
-
-<
--------------------------------------------------------------------------------
-
-`nno`                    *algorithm_mnemonics_none_of*
->
-    if (std::none_of(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-      %\c
-    } ) ) {
-      %\c
-    }
-
+    std::transform(std::begin(%\m C%), std::end(%\m C%), std::begin(%\m C%), [](char c) {
+    return std::toupper(c);
+    });
+    %\c
 <
 -------------------------------------------------------------------------------
 
