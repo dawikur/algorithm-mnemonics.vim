@@ -17,5 +17,5 @@ endfunction
 
 function! algorithm_mnemonics#equalization(name)
   let l:const_return = algorithm_mnemonics#const_return(a:name)
-  return repeat(" ", len(l:const_return)
+  return repeat(" ", len(l:const_return))
 endfunction
