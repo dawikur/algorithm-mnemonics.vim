@@ -3,21 +3,28 @@
 ===============================================================================
 MNEMONICS                                                 *algorithm_mnemonics*
 
-    Containers    .........................    |algorithm_mnemonics_containers|
-    Idioms    .................................    |algorithm_mnemonics_idioms|
-    Modifying    ...........................    |algorithm_mnemonics_modifying|
-    Mutating    .............................    |algorithm_mnemonics_mutating|
-    Nonmodifying    .....................    |algorithm_mnemonics_nonmodifying|
-    Numeric    ...............................    |algorithm_mnemonics_numeric|
-    Removing    .............................    |algorithm_mnemonics_removing|
-    Sorted Ranges    ...................    |algorithm_mnemonics_sorted_ranges|
-    Sorting    ...............................    |algorithm_mnemonics_sorting|
-    Streams    ...............................    |algorithm_mnemonics_streams|
-    Strings    ................................    |algorithm_mnemonics_string|
+  1. Mnemonics    ..........................    |algorithm_mnemonics_mnemonics|
+    1.01. Containers    ...................    |algorithm_mnemonics_containers|
+    1.02. Idioms    ...........................    |algorithm_mnemonics_idioms|
+    1.03. Modifying    .....................    |algorithm_mnemonics_modifying|
+    1.04. Mutating    .......................    |algorithm_mnemonics_mutating|
+    1.05. Nonmodifying    ...............    |algorithm_mnemonics_nonmodifying|
+    1.06. Numeric    .........................    |algorithm_mnemonics_numeric|
+    1.07. Removing    .......................    |algorithm_mnemonics_removing|
+    1.08. Sorted Ranges    .............    |algorithm_mnemonics_sorted_ranges|
+    1.09. Sorting    .........................    |algorithm_mnemonics_sorting|
+    1.10. Streams    .........................    |algorithm_mnemonics_streams|
+    1.11. Strings    ..........................    |algorithm_mnemonics_string|
+  2. Options    ..............................    |algorithm_mnemonics_options|
+
 
 ===============================================================================
 
-    Containers                                 *algorithm_mnemonics_containers*
+1. Mnemonics                                    *algorithm_mnemonics_mnemonics*
+
+-------------------------------------------------------------------------------
+
+1.01. Containers                                 *algorithm_mnemonics_containers*
 
 'stv'                                              *algorithm_mnemonics_vector*
 >
@@ -25,7 +32,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Idioms                                         *algorithm_mnemonics_idioms*
+1.02. Idioms                                       *algorithm_mnemonics_idioms*
 
 'erm'                                               *algorithm_mnemonics_erase*
 >
@@ -33,7 +40,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Modifying                                   *algorithm_mnemonics_modifying*
+1.03. Modifying                                 *algorithm_mnemonics_modifying*
 
 'cpb'                                       *algorithm_mnemonics_copy_backward*
 >
@@ -158,7 +165,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Mutating                                     *algorithm_mnemonics_mutating*
+1.04. Mutating                                   *algorithm_mnemonics_mutating*
 
 'nxp'                                    *algorithm_mnemonics_next_permutation*
 >
@@ -207,7 +214,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Nonmodifying                             *algorithm_mnemonics_nonmodifying*
+1.05. Nonmodifying                           *algorithm_mnemonics_nonmodifying*
 
 'ajf'                                       *algorithm_mnemonics_adjacent_find*
 >
@@ -450,7 +457,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 -------------------------------------------------------------------------------
 
 
-    Numeric                                       *algorithm_mnemonics_numeric*
+1.06. Numeric                                     *algorithm_mnemonics_numeric*
 
 'acl'                                          *algorithm_mnemonics_accumulate*
 >
@@ -466,7 +473,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Removing                                     *algorithm_mnemonics_removing*
+1.07. Removing                                   *algorithm_mnemonics_removing*
 
 'rmc'                                         *algorithm_mnemonics_remove_copy*
 >
@@ -510,7 +517,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Sorted Ranges                           *algorithm_mnemonics_sorted_ranges*
+1.08. Sorted Ranges                         *algorithm_mnemonics_sorted_ranges*
 
 'bns'                                       *algorithm_mnemonics_binary_search*
 >
@@ -609,7 +616,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Sorting                                       *algorithm_mnemonics_sorting*
+1.09. Sorting                                     *algorithm_mnemonics_sorting*
 
 'mkh'                                           *algorithm_mnemonics_make_heap*
 >
@@ -688,7 +695,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Streams                                       *algorithm_mnemonics_streams*
+1.10. Streams                                     *algorithm_mnemonics_streams*
 
 'oit'                                                *algorithm_mnemonics_copy*
 >
@@ -710,7 +717,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-    Strings                                        *algorithm_mnemonics_string*
+1.11. Strings                                      *algorithm_mnemonics_string*
 
 'ltr'                                    *algorithm_mnemonics_string_trim_left*
 >
@@ -738,5 +745,20 @@ MNEMONICS                                                 *algorithm_mnemonics*
     });
     %\c
 <
+===============================================================================
+
+2. Options                                        *algorithm_mnemonics_options*
+
 -------------------------------------------------------------------------------
+
+'g:algorithm_mnemonics_const_return'
+
+Gives ability to add 'const type qualifier' to returning type.
+
+Values:
+  "None"  - don't add 'const'        => 'auto'
+  "Left"  - add 'const' to the left  => 'const auto'
+  "Right" - add 'const' to the right => 'auto const'
+Default:
+  "Right" (The right one)
 
