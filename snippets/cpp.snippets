@@ -53,7 +53,7 @@ snippet rpc "replace_copy"
 	                  ${3:old_value}, ${4:new_value}});${0}
 snippet rpi "replace_if"
 	std::replace_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-	               [](${2:auto const element}) {
+	               [](${2:auto const value}) {
 		${3}
 	}, ${4:new_value});${0}
 snippet rpl "replace"
@@ -105,8 +105,8 @@ snippet alo "all_of"
 snippet ano "any_of"
 	if (std::any_of(std::begin(${1:${VISUAL:container}}), std::end($1),
 	                [](${2:auto const value}) {
-	                  ${3}
-	                })) {
+		${3}
+	})) {
 		${4}
 	}${0}
 snippet cni "count_if"
@@ -175,8 +175,8 @@ snippet ipr "is_permutation"
 snippet ipt "is_partitioned"
 	if (std::is_partitioned(std::begin(${1:${VISUAL:container}}), std::end($1),
 	                        [](${2:auto const value}) {
-	                          ${3}
-		                      })) {
+		${3}
+	})) {
 		${4}
 	}${0}
 snippet iss "is_sorted"
@@ -210,8 +210,8 @@ snippet mxe "max_element"
 snippet nno "none_of"
 	if (std::none_of(std::begin(${1:${VISUAL:container}}), std::end($1),
 	                 [](${2:auto const value}) {
-	                   ${3}
-	                 })) {
+		${3}
+	})) {
 		${4}
 	}${0}
 snippet ppt "partition_point"
