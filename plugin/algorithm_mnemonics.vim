@@ -10,3 +10,4 @@ function! s:init(name, value)
 endfunction
 
 call s:init("g:algorithm_mnemonics_const_return", "Right")
+call s:init("g:algorithm_mnemonics_lambda_parameter", "auto const value")

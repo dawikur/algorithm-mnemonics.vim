@@ -13,7 +13,7 @@ snippet cpb "copy_backward"
 snippet cpi "copy_if"
 	std::copy_if(std::begin(${1:${VISUAL:input}}), std::end($1),
 	             std::begin(${2:output}),
-	             [](${3:auto const value}) {
+	             [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});${0}
 snippet cpn "copy_n"
@@ -27,12 +27,12 @@ snippet fln "fill_n"
 	std::fill_n(std::begin(${1:${VISUAL:container}}), ${2:count}, ${3:value});${0}
 snippet gnn "generate_n"
 	std::generate_n(std::begin(${1:${VISUAL:container}}), ${2:count},
-	                [](${3:auto const value}) {
+	                [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});${0}
 snippet gnr "generate"
 	std::generate(std::begin(${1:${VISUAL:container}}), std::end($1),
-	              [](${2:auto const value}) {
+	              [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});${0}
 snippet ita "iota"
@@ -44,7 +44,7 @@ snippet mpb "move_backward"
 snippet rci "replace_copy_if"
 	std::replace_copy_if(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                     std::begin(${2:output}),
-	                     [](${3:auto const value}) {
+	                     [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	}, ${5:new_value});${0}
 snippet rpc "replace_copy"
@@ -53,7 +53,7 @@ snippet rpc "replace_copy"
 	                  ${3:old_value}, ${4:new_value}});${0}
 snippet rpi "replace_if"
 	std::replace_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-	               [](${2:auto const value}) {
+	               [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	}, ${4:new_value});${0}
 snippet rpl "replace"
@@ -66,7 +66,7 @@ snippet swr "swap_ranges"
 snippet tfm "transform"
 	std::transform(std::begin(${1:${VISUAL:input}}), std::end($1),
 	               std::begin(${2:output}),
-	               [](${3:auto const value}) {
+	               [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});${0}
 # Mutating
@@ -97,21 +97,21 @@ snippet ajf "adjacent_find"
 	}${0}
 snippet alo "all_of"
 	if (std::all_of(std::begin(${1:${VISUAL:container}}), std::end($1),
-	                [](${2:auto const value}) {
+	                [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 	                  ${3}
 	                })) {
 		${4}
 	}${0}
 snippet ano "any_of"
 	if (std::any_of(std::begin(${1:${VISUAL:container}}), std::end($1),
-	                [](${2:auto const value}) {
+	                [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	})) {
 		${4}
 	}${0}
 snippet cni "count_if"
 	`algorithm_mnemonics#const_return("n")` = std::count_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("n")`                 [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("n")`                 [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});${0}
 snippet cnt "count"
@@ -129,7 +129,7 @@ snippet ffo "find_first_of"
 	}${0}
 snippet fin "find_if_not"
 	`algorithm_mnemonics#const_return("pos")` = std::find_if_not(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                    [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("pos")`                    [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});
 	if (pos != std::end($1)) {
@@ -148,7 +148,7 @@ snippet fne "find_end"
 	}${0}
 snippet fni "find_if"
 	`algorithm_mnemonics#const_return("pos")` = std::find_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("pos")`                [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});
 	if (pos != std::end($1)) {
@@ -156,7 +156,7 @@ snippet fni "find_if"
 	}${0}
 snippet fre "for_each"
 	std::for_each(std::begin(${1:${VISUAL:container}}), std::end($1),
-	              [](${2:auto const value}) {
+	              [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});${0}
 snippet ihp "is_heap"
@@ -174,7 +174,7 @@ snippet ipr "is_permutation"
 	}${0}
 snippet ipt "is_partitioned"
 	if (std::is_partitioned(std::begin(${1:${VISUAL:container}}), std::end($1),
-	                        [](${2:auto const value}) {
+	                        [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	})) {
 		${4}
@@ -209,14 +209,14 @@ snippet mxe "max_element"
 	`algorithm_mnemonics#const_return("pos")` = std::max_element(std::begin(${1:${VISUAL:container}}), std::end($1));${0}
 snippet nno "none_of"
 	if (std::none_of(std::begin(${1:${VISUAL:container}}), std::end($1),
-	                 [](${2:auto const value}) {
+	                 [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	})) {
 		${4}
 	}${0}
 snippet ppt "partition_point"
 	`algorithm_mnemonics#const_return("pos")` = std::partition_point(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                        [](${2:auto const value}) { ${3} });
+	`algorithm_mnemonics#equalization("pos")`                        [](${2:`g:algorithm_mnemonics_lambda_parameter`}) { ${3} });
 	if (pos != std::end($1)) {
 		${4}
 	}${0}
@@ -235,7 +235,7 @@ snippet srn "search_n"
 # Numeric
 snippet acl "accumulate"
 	`algorithm_mnemonics#const_return("sum")` = std::accumulate(std::begin(${1:${VISUAL:container}}), std::end($1), 0,
-	`algorithm_mnemonics#equalization("sum")`                   [](auto const total, ${2:auto const value}) {
+	`algorithm_mnemonics#equalization("sum")`                   [](auto const total, ${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});${0}
 snippet acm "accumulate"
@@ -247,12 +247,12 @@ snippet rmc "remove_copy"
 snippet rmf "remove_copy_if"
 	std::remove_copy_if(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                    std::begin(${2:output}),
-	                    [](${3:auto const value}) {
+	                    [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});${0}
 snippet rmi "remove_if"
 	`algorithm_mnemonics#const_return("pos")` = std::remove_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                  [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("pos")`                  [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${4}
 	});
 	if (pos != std::end($1)) {
@@ -345,12 +345,12 @@ snippet pst "partial_sort"
 snippet ptc "partition_copy"
 	std::partition_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                    std::begin(${2:true_output}), std::end(${3:false_output}),
-	                    [] (${4:auto const value}){
+	                    [] (${4:`g:algorithm_mnemonics_lambda_parameter`}){
 		${5}
 	});${0}
 snippet ptn "partition"
 	`algorithm_mnemonics#const_return("pos")` = std::partition(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                  [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("pos")`                  [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});
 	if (pos != std::end($1)) {
@@ -359,7 +359,7 @@ snippet ptn "partition"
 snippet spt "stable_partition"
 	`algorithm_mnemonics#const_return("pos")` = std::stable_partition(std::begin(${1:${VISUAL:container}}),
 	`algorithm_mnemonics#equalization("pos")`                         std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                         [](${2:auto const value}) {
+	`algorithm_mnemonics#equalization("pos")`                         [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
 		${3}
 	});
 	if (pos != std::end($1)) {

@@ -16,7 +16,8 @@ MNEMONICS                                                 *algorithm_mnemonics*
     1.10. Streams    .........................    |algorithm_mnemonics_streams|
     1.11. Strings    ..........................    |algorithm_mnemonics_string|
   2. Options    ..............................    |algorithm_mnemonics_options|
-
+    2.1. const return    ................    |algorithm_mnemonics_const_return|
+    2.2. lambda parameter    ........    |algorithm_mnemonics_lambda_parameter|
 
 ===============================================================================
 
@@ -751,7 +752,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 -------------------------------------------------------------------------------
 
-'g:algorithm_mnemonics_const_return'
+'g:algorithm_mnemonics_const_return'       *g:algorithm_mnemonics_const_return*
 
 Gives ability to add 'const type qualifier' to returning type.
 
@@ -759,6 +760,18 @@ Values:
   "None"  - don't add 'const'        => 'auto'
   "Left"  - add 'const' to the left  => 'const auto'
   "Right" - add 'const' to the right => 'auto const'
-Default:
-  "Right" (The right one)
+Default: >
+  let g:algorithm_mnemonics_const_return = "Right"
+<
+-------------------------------------------------------------------------------
+
+'g:algorithm_mnemonics_lambda_parameter' *algorithm_mnemonics_lambda_parameter*
+
+Specifies how looks lambda parameter.
+
+Values: string
+Default: >
+  let g:algorithm_mnemonics_lambda_parameter = "auto const value"
+<
+-------------------------------------------------------------------------------
 
