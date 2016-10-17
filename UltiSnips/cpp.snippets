@@ -68,7 +68,7 @@ std::replace_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 endsnippet
 snippet rpi "replace_if"
 std::replace_if(std::begin(${1:${VISUAL:container}}), std::end($1),
-               [](${2:auto const element}) {
+               [](${2:auto const value}) {
 	${3}
 }, ${4:new_value});${0}
 endsnippet
@@ -126,16 +126,16 @@ endsnippet
 snippet alo "all_of"
 if (std::all_of(std::begin(${1:${VISUAL:container}}), std::end($1),
                 [](${2:auto const value}) {
-                  ${3}
-                })) {
+	${3}
+})) {
 	${4}
 }${0}
 endsnippet
 snippet ano "any_of"
 if (std::any_of(std::begin(${1:${VISUAL:container}}), std::end($1),
                 [](${2:auto const value}) {
-                  ${3}
-                })) {
+	${3}
+})) {
 	${4}
 }${0}
 endsnippet
@@ -217,8 +217,8 @@ endsnippet
 snippet ipt "is_partitioned"
 if (std::is_partitioned(std::begin(${1:${VISUAL:container}}), std::end($1),
                         [](${2:auto const value}) {
-                          ${3}
-	                      })) {
+	${3}
+})) {
 	${4}
 }${0}
 endsnippet
@@ -260,8 +260,8 @@ endsnippet
 snippet nno "none_of"
 if (std::none_of(std::begin(${1:${VISUAL:container}}), std::end($1),
                  [](${2:auto const value}) {
-                   ${3}
-                 })) {
+	${3}
+})) {
 	${4}
 }${0}
 endsnippet
