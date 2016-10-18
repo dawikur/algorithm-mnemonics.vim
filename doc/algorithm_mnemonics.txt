@@ -460,7 +460,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 1.06. Numeric                                     *algorithm_mnemonics_numeric*
 
-'acl'                                          *algorithm_mnemonics_accumulate*
+'acl'                                   *algorithm_mnemonics_accumulate_lambda*
 >
     auto sum = std::accumulate(std::begin(%\m C%), std::end(%\m C%), 0, [](int total, %\c) {
       %\c
@@ -535,7 +535,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-'erl'                                         *algorithm_mnemonics_equal_range*
+'erl'                                  *algorithm_mnemonics_equal_range_lambda*
 >
     auto bounds = std::equal_range(std::begin(%\m C%), std::end(%\m C%), %\c,
       [](%\c,%\c) { %\c });
@@ -698,7 +698,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 1.10. Streams                                     *algorithm_mnemonics_streams*
 
-'oit'                                                *algorithm_mnemonics_copy*
+'oit'                                           *algorithm_mnemonics_copy_cout*
 >
     std::copy(std::begin(%\m C%), std::end(%\m C%), std::ostream_iterator<%\c>{
     %\istd::cout, "%\c"
