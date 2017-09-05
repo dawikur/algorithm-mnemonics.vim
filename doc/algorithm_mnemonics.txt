@@ -551,7 +551,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-'ipm                                        *algorithm_mnemonics_inplace_merge*
+'ipm'                                       *algorithm_mnemonics_inplace_merge*
 >
     std::inplace_merge(std::begin(%\m C%), std::end(%\m C%), std::end(%\m C%));
 <
@@ -767,7 +767,7 @@ Default: >
 
 'g:algorithm_mnemonics_lambda_parameter' *algorithm_mnemonics_lambda_parameter*
 
-Specifies how looks lambda parameter.
+Specifies how lambda parameter looks.
 
 Values: string
 Default: >
