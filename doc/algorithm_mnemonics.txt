@@ -84,7 +84,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 'gnn'                                          *algorithm_mnemonics_generate_n*
 >
-    std::generate_n(std::begin(%\m C%), %\c, [](%\c) {
+    std::generate_n(std::begin(%\m C%), %\c, []() {
       %\c
     });
 <
@@ -92,7 +92,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 'gnr'                                            *algorithm_mnemonics_generate*
 >
-    std::generate(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
+    std::generate(std::begin(%\m C%), std::end(%\m C%), []() {
       %\c
     });
 <
@@ -133,8 +133,9 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 'rpi'                                          *algorithm_mnemonics_replace_if*
 >
-    std::replace_if(std::begin(%\m C%), std::end(%\m C%), [](%\c) {
-    %\c
+    std::replace_if(std::begin(%\m C%), std::end(%\m C%),
+                    [](%\c) {
+      %\c
     }, %\c);
 <
 -------------------------------------------------------------------------------
@@ -187,7 +188,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 'rtc'                                         *algorithm_mnemonics_rotate_copy*
 >
     std::rotate_copy(std::begin(%\m C%), std::begin(%\c), std::end(%\m C%),
-      std::begin(%\c));
+                     std::begin(%\c));
 <
 -------------------------------------------------------------------------------
 
@@ -300,7 +301,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 'fne'                                            *algorithm_mnemonics_find_end*
 >
-    auto pos = std::find_std::end(std::begin(%\m C%), std::end(%\m C%),
+    auto pos = std::find_end(std::begin(%\m C%), std::end(%\m C%),
       std::begin(%\c), std::end(%\c));
     if (pos != std::end(%\m C%)) {
       %\c
@@ -338,7 +339,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 'ihu'                                       *algorithm_mnemonics_is_heap_until*
 >
     auto pos = std::is_heap_until(std::begin(%\m C%), std::end(%\m C%));
-    if (pos != std::end(%\m C%)) {
+    if (pos) {
       %\c
     }
 <
@@ -379,10 +380,10 @@ MNEMONICS                                                 *algorithm_mnemonics*
 <
 -------------------------------------------------------------------------------
 
-'lxc'                               *algorithm_mnemonics_lexigraphical_compare*
+'lxc'                             *algorithm_mnemonics_lexicographical_compare*
 >
-    if (std::lexigraphical_compare(std::begin(%\m C%), std::end(%\m C%),
-      std::begin(%\c), std::end(%\c)) {
+    if (std::lexicographical_compare(std::begin(%\m C%), std::end(%\m C%),
+                                     std::begin(%\c), std::end(%\c)) {
       %\c
     }
 <
@@ -522,8 +523,8 @@ MNEMONICS                                                 *algorithm_mnemonics*
 
 'bns'                                       *algorithm_mnemonics_binary_search*
 >
-    auto pos = std::binary_search(std::begin(%\m C%), std::end(%\m C%), %\c);
-    if (pos != std::end(%\m C%)) {
+    auto found = std::binary_search(std::begin(%\m C%), std::end(%\m C%), %\c);
+    if (found) {
       %\c
     }
 <
@@ -604,7 +605,7 @@ MNEMONICS                                                 *algorithm_mnemonics*
 'ucp'                                         *algorithm_mnemonics_unique_copy*
 >
     std::unique_copy(std::begin(%\m C%), std::end(%\m C%),
-      std::ostream_iterator<string>(std::cout, "\n"));
+      std::ostream_iterator<decltype(%\m)::type_value>(std::cout, "\n"));
 <
 -------------------------------------------------------------------------------
 

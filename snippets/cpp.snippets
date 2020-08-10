@@ -26,20 +26,18 @@ snippet fil "fill"
 snippet fln "fill_n"
 	std::fill_n(std::begin(${1:${VISUAL:container}}), ${2:count}, ${3:value});
 snippet gnn "generate_n"
-	std::generate_n(std::begin(${1:${VISUAL:container}}), ${2:count},
-	                [](${3:`g:algorithm_mnemonics_lambda_parameter`}) {
+	std::generate_n(std::begin(${1:${VISUAL:container}}), ${2:count}, []() {
 		${4}
 	});
 snippet gnr "generate"
-	std::generate(std::begin(${1:${VISUAL:container}}), std::end($1),
-	              [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
+	std::generate(std::begin(${1:${VISUAL:container}}), std::end($1), []() {
 		${3}
 	});
 snippet ita "iota"
 	std::iota(std::begin(${1:${VISUAL:container}}), std::end($1), ${2:initial_value});
 snippet mov "move"
-	std::move(std::begin(${1:${VISUAL:input}}), std::end($1), std::begin(${2:output}}));
-snippet mpb "move_backward"
+	std::move(std::begin(${1:${VISUAL:input}}), std::end($1), std::begin(${2:output}));
+snippet mvb "move_backward"
 	std::move_backward(std::begin(${1:${VISUAL:input}}), std::end($1), std::end(${2:output}));
 snippet rci "replace_copy_if"
 	std::replace_copy_if(std::begin(${1:${VISUAL:input}}), std::end($1),
@@ -50,7 +48,7 @@ snippet rci "replace_copy_if"
 snippet rpc "replace_copy"
 	std::replace_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                  std::begin(${2:output}),
-	                  ${3:old_value}, ${4:new_value}});
+	                  ${3:old_value}, ${4:new_value});
 snippet rpi "replace_if"
 	std::replace_if(std::begin(${1:${VISUAL:container}}), std::end($1),
 	               [](${2:`g:algorithm_mnemonics_lambda_parameter`}) {
@@ -80,7 +78,7 @@ snippet prp "prev_permutation"
 	}
 snippet rtc "rotate_copy"
 	std::rotate_copy(std::begin(${1:${VISUAL:input}}), std::begin(${2:middle}), std::end($1),
-	                 std::begin(${2:output}));
+	                 std::begin(${3:output}));
 snippet rte "rotate"
 	std::rotate(std::begin(${1:${VISUAL:container}}), std::begin(${2:middle}), std::end($1));
 snippet rvc "reverse_copy"
@@ -141,8 +139,8 @@ snippet fnd "find"
 		${3}
 	}
 snippet fne "find_end"
-	`algorithm_mnemonics#const_return("pos")` = std::find(std::end(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`             std::begin(${2:container2}), std::end($2)));
+	`algorithm_mnemonics#const_return("pos")` = std::find_end(std::begin(${1:${VISUAL:container}}), std::end($1),
+	`algorithm_mnemonics#equalization("pos")`                 std::begin(${2:container2}), std::end($2));
 	if (pos != std::end($1)) {
 		${3}
 	}
@@ -164,8 +162,8 @@ snippet ihp "is_heap"
 		$2
 	}
 snippet ihu "is_heap_until"
-	`algorithm_mnemonics#const_return("pos")` = std::is_heap_until(std::begin(${1:${VISUAL:container}}), std::end($1));
-	if (pos != std::end($1)) {
+	`algorithm_mnemonics#const_return("pos")` = std::is_heap_until(std::begin(${1:${VISUAL:container}}), ${2:std::end($1)});
+	if (pos != $2) {
 		$2
 	}
 snippet ipr "is_permutation"
@@ -188,9 +186,9 @@ snippet isu "is_sorted_until"
 	if (pos != std::end($1)) {
 		$2
 	}
-snippet lxc "lexigraphical_compare"
-	if (std::lexigraphical_compare(std::begin(${1:${VISUAL:container1}}), std::end($1),
-	                               std::begin(${2:container2}), std::end($2)) {
+snippet lxc "lexicographical_compare"
+	if (std::lexicographical_compare(std::begin(${1:${VISUAL:container1}}), std::end($1),
+	                                 std::begin(${2:container2}), std::end($2))) {
 		${3}
 	}
 snippet mme "minmax_element"
@@ -228,7 +226,7 @@ snippet srh "search"
 	}
 snippet srn "search_n"
 	`algorithm_mnemonics#const_return("pos")` = std::search_n(std::begin(${1:${VISUAL:container}}), std::end($1),
-	`algorithm_mnemonics#equalization("pos")`                 ${2:count}, ${3:value}});
+	`algorithm_mnemonics#equalization("pos")`                 ${2:count}, ${3:value});
 	if (pos != std::end($1)) {
 		${4}
 	}
@@ -267,8 +265,8 @@ snippet uqe "unique"
 	`algorithm_mnemonics#const_return("pos")` = std::unique(std::begin(${1:${VISUAL:container}}), std::end($1));
 # Sorted Ranges
 snippet bns "binary_search"
-	`algorithm_mnemonics#const_return("pos")` = std::binary_search(std::begin(${1:${VISUAL:container}}), std::end($1), ${2:value});
-	if (pos != std::end($1)) {
+	`algorithm_mnemonics#const_return("found")` = std::binary_search(std::begin(${1:${VISUAL:container}}), std::end($1), ${2:value});
+	if (found) {
 		${3}
 	}
 snippet eqr "equal_range"
@@ -318,7 +316,7 @@ snippet stu "set_union"
 	`algorithm_mnemonics#equalization("pos")`                  std::begin(${3:output}));
 snippet ucp "unique_copy"
 	std::unique_copy(std::begin(${1:${VISUAL:container}}), std::end($1),
-	                 ${2:std::ostream_iterator<string>(std::cout, "\n")});
+	                 ${2:std::ostream_iterator<decltype($1)::value_type>(std::cout, "\n")});
 snippet upb "upper_bound"
 	`algorithm_mnemonics#const_return("pos")` = std::upper_bound(std::begin(${1:${VISUAL:container}}),
 	`algorithm_mnemonics#equalization("pos")`                    std::end($1),
@@ -330,8 +328,8 @@ snippet upb "upper_bound"
 snippet mkh "make_heap"
 	std::make_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
 snippet nth "nth_element"
-	std::nth_element(std::begin(${1:${VISUAL:container}}), std::end(${2:nth}),
-	                 std::end($1));${}
+	std::nth_element(std::begin(${1:${VISUAL:container}}), ${2:std::end($1)},
+	                 std::end($1));
 snippet phh "push_heap"
 	std::push_heap(std::begin(${1:${VISUAL:container}}), std::end($1));
 snippet pph "pop_heap"
@@ -340,7 +338,7 @@ snippet psc "partial_sort_copy"
 	std::partial_sort_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
 	                       std::begin(${2:output}), std::end($2));
 snippet pst "partial_sort"
-	std::partial_sort(std::begin(${1:${VISUAL:container}}), ${2:middle},
+	std::partial_sort(std::begin(${1:${VISUAL:container}}), ${2:std::end($1)},
 	                  std::end($1));
 snippet ptc "partition_copy"
 	std::partition_copy(std::begin(${1:${VISUAL:input}}), std::end($1),
@@ -374,7 +372,7 @@ snippet sts "stable_sort"
 # Streams
 snippet oit "copy"
 	std::copy(std::begin(${1:${VISUAL:container}}), std::end($1),
-	          std::ostream_iterator<${2:string}>(std::cout, ${3:"\n"}));
+	          std::ostream_iterator<${2:decltype($1)::value_type}>(std::cout, ${3:"\n"}));
 snippet sti "cin"
 	std::cin >>
 snippet sto "cout"
@@ -385,10 +383,10 @@ snippet ltr "string_trim_left"
 snippet lwr "string_lower"
 	std::transform(std::begin(${1:${VISUAL:input}}), std::end($1),
 	               std::begin(${2:output}),
-	               [](char const c) { return std::tolower(c); });
+	               [](`algorithm_mnemonics#const_return("c")`) { return std::tolower(c); });
 snippet trm "string_trim_right"
 	${1:${VISUAL:string}}.erase($1.find_last_not_of(" \t\n\r") + 1);
 snippet upr "string_upper"
 	std::transform(std::begin(${1:${VISUAL:input}}), std::end($1),
 	               std::begin(${2:output}),
-	               [](char const c) { return std::toupper(c); });
+	               [](`algorithm_mnemonics#const_return("c")`) { return std::toupper(c); });
